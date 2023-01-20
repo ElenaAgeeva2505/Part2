@@ -1,0 +1,57 @@
+
+<form>
+  <div>
+    <label>Название</label>
+    <input pattern="[a-zA-Zа-яА-ЯеЁ]*" required #name="ngModel" [(ngModel)]="create_book.name" type="text" class="form-control" name="book_name">
+  </div>
+  
+  
+  <div *ngIf="name.invalid && (name.dirty || name.touched)">
+    <div *ngIf="name.hasError('required')" role="alert">
+ Поле должно быть заполнено
+    </div>
+    <div *ngIf="name.hasError('pattern')" role="alert">
+ Поле не должно содержать цифр, специальных символов
+    </div>
+</div>
+
+  <div>
+    <label>Автор</label>
+    <input pattern="[a-zA-Zа-яА-ЯеЁ]*" required #author="ngModel" [(ngModel)]="create_book.author" type="text" class="form-control" name="author_name">
+  </div>
+
+  <div *ngIf="author.invalid && (author.dirty || author.touched)">
+    <div *ngIf="author.hasError('required')" role="alert">
+  Поле должно быть заполнено
+    </div>
+    <div *ngIf="author.hasError('pattern')" role="alert">
+  Поле не должно содержать цифр, специальных символов
+    </div>
+  </div>
+  <button [disabled]="name.invalid||author.invalid" (click)="createBook()" type="submit">Добавить</button>
+  </form>
+
+<div>
+  <h1>Список книг</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Номер</th>
+        <th>Название</th>
+        <th>Автор</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{book.name}}</td>
+        <td>{{book.author}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<router-outlet></router-outlet>
