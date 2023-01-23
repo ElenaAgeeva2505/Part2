@@ -1,39 +1,39 @@
 
-<form>
-  <div>
-    <label>Название</label>
-    <input pattern="[a-zA-Zа-яА-ЯеЁ]*" required #name="ngModel" [(ngModel)]="create_book.name" type="text" class="form-control" name="book_name">
+<form class="container my-auto">
+  <div class="mb-3">
+    <label class="form-label">Название</label>
+    <input class="form-control" pattern="[a-zA-Zа-яА-ЯеЁ]*" required #name="ngModel" [(ngModel)]="create_book.name" type="text" class="form-control" name="book_name">
   </div>
   
   
   <div *ngIf="name.invalid && (name.dirty || name.touched)">
-    <div *ngIf="name.hasError('required')" role="alert">
+    <div *ngIf="name.hasError('required')" role="alert" class="alert alert-danger mt-2">
  Поле должно быть заполнено
     </div>
-    <div *ngIf="name.hasError('pattern')" role="alert">
+    <div *ngIf="name.hasError('pattern')" role="alert" class="alert alert-danger mt-2">
  Поле не должно содержать цифр, специальных символов
     </div>
 </div>
 
-  <div>
-    <label>Автор</label>
+  <div class="mb-3">
+    <label class="form-label">Автор</label>
     <input pattern="[a-zA-Zа-яА-ЯеЁ]*" required #author="ngModel" [(ngModel)]="create_book.author" type="text" class="form-control" name="author_name">
   </div>
 
   <div *ngIf="author.invalid && (author.dirty || author.touched)">
-    <div *ngIf="author.hasError('required')" role="alert">
+    <div *ngIf="author.hasError('required')" role="alert" class="alert alert-danger mt-2">
   Поле должно быть заполнено
     </div>
-    <div *ngIf="author.hasError('pattern')" role="alert">
+    <div *ngIf="author.hasError('pattern')" role="alert" class="alert alert-danger mt-2">
   Поле не должно содержать цифр, специальных символов
     </div>
   </div>
-  <button [disabled]="name.invalid||author.invalid" (click)="createBook()" type="submit">Добавить</button>
+  <button class="btn btn-primary" [disabled]="name.invalid||author.invalid" (click)="createBook()" type="submit">Добавить</button>
   </form>
 
 <div>
-  <h1>Список книг</h1>
-  <table>
+  <h1 class="display-6 container m-5">Список книг</h1>
+  <table class="table table-striped container pt-10">
     <thead>
       <tr>
         <th>Номер</th>
