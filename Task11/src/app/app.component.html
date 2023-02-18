@@ -1,18 +1,8 @@
-<p>Каждые 5 секунд добавляется число в массив</p>
 
-<button (click)="getCounter()">Запустить получение данных</button>
-<button *ngIf="enableStopButton" (click)="stopSubs()">
-  Остановить поток данных
-</button>
-
-<p *ngFor="let count of counterService.counterArray">{{ count }}</p>
-
-
-
-<!--<div>
+<div>
   <h1>Числа</h1>
-  <button type="submit">Остановить поток 1</button>
-  <button type="submit">Остановить поток 2</button>
+  <button (click)="getCounter()">Запустить поток 1</button>
+  <button *ngIf="enableStopButton" (click)="stopSubs()"> Остановить поток 1</button>
   <table>
     <thead>
       <tr>
@@ -21,15 +11,11 @@
       </tr>
     </thead>
     <tbody>
-        <td></td>
+        <td><p *ngFor="let count of counterService.counterArray">{{ count }}</p></td>
         <td></td>
     </tbody>
   </table>
+  
 </div>
 
-<button (click)="enableIntervalOperator()">Запустить Interval Operator</button>
-<button (click)="disableIntervalOperator()">Остановить Interval Operator</button>
-
-<button (click)="enableMapFilterOperator()">Запустить Map, Filter Operator</button>
-<button (click)="disableMapFilterOperator()">Остановить Map, Filter Operator</button>-->
 

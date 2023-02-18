@@ -1,0 +1,16 @@
+<ng-container>
+    <table>
+        <caption>Список книг</caption>
+        <tr>
+         <th>Название</th>
+         <th>Цена</th>
+         <th>Количество</th>
+        </tr>
+        <tr *ngFor="let book of books">
+            <td [id]="book.name">{{ book.name }}</td>
+            <td [id]="book.price">{{ book.price }}</td>
+            <td [id]="book.count">{{ book.count}}</td>
+        </tr>
+    </table>
+  </ng-container>
+  

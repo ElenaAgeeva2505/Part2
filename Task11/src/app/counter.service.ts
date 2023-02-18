@@ -13,7 +13,7 @@ export class CounterService {
       setInterval(() => {
         this.counterArray.push(this.counterArray.length + 1);
         observer.next(this.counterArray);
-      }, 3000);
+      }, 2000);
     });
   }
 }
